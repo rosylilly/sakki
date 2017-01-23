@@ -1,4 +1,6 @@
 class EntryRepository
+  include Enumerable
+
   def initialize
     @entries = []
   end
@@ -10,5 +12,9 @@ class EntryRepository
 
   def fetch(id)
     @entries[id]
+  end
+
+  def each(&block)
+    @entries.each(&block)
   end
 end
